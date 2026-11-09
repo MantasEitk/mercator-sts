@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+        text: "Back",
+        href: "/address"
+        }) }}
+
+        <h1 class="govuk-heading-l">Check your answers</h1>
+
+        {{ govukSummaryList({
+        rows: [
+        {
+        key: {
+        text: "Destination"
+        },
+        value: {
+        text: data['destination']
+        },
+        actions: {
+        items: [
+        {
+        href: "/destination",
+        text: "Change",
+        visuallyHiddenText: "destination"
+        }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "Full name"
+        },
+        value: {
+        text: data['fullName']
+        },
+        actions: {
+        items: [
+        {
+        href: "/name",
+        text: "Change",
+        visuallyHiddenText: "name"
+        }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "Address"
+        },
+        value: {
+        html: data['addressLine1'] + "<br>" + data['addressTown'] + "<br>" + data['addressPostcode']
+        },
+        actions: {
+        items: [
+        {
+        href: "/address",
+        text: "Change",
+        visuallyHiddenText: "address"
+        }
+        ]
+        }
+        }
+        ]
+        }) }}
+    </div>
+</div>
+
+{% endblock %}
