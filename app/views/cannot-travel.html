@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="You cannot travel to Mars" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+        text: "Back",
+        href: "/mars-duration"
+        }) }}
+
+        <h1 class="govuk-heading-l">You cannot travel to Mars</h1>
+
+        <p class="govuk-body">A trip to Mars takes up to 3 years, so you need to be able to travel for that long.</p>
+
+        <p class="govuk-body">You can <a href="/destination" class="govuk-link">book a trip to the Moon</a> instead.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

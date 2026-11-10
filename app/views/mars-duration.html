@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Can you travel for up to 3 years?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+        text: "Back",
+        href: "/destination"
+        }) }}
+
+        <form method="post" action="/mars-duration-answer">
+            {{ govukRadios({
+            name: "marsDuration",
+            classes: "govuk-radios--inline",
+            fieldset: {
+            legend: {
+            text: "Can you travel for up to 3 years?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+            }
+            },
+            items: [
+            {
+            value: "Yes",
+            text: "Yes"
+            },
+            {
+            value: "No",
+            text: "No"
+            }
+            ]
+            }) }}
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

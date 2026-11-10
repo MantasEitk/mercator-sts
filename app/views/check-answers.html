@@ -35,6 +35,23 @@
         },
         {
         key: {
+        text: "Can travel for up to 3 years"
+        },
+        value: {
+        text: data['marsDuration']
+        },
+        actions: {
+        items: [
+        {
+        href: "/mars-duration",
+        text: "Change",
+        visuallyHiddenText: "whether you can travel for up to 3 years"
+        }
+        ]
+        }
+        } if data['destination'] == "Mars",
+        {
+        key: {
         text: "Full name"
         },
         value: {
