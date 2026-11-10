@@ -2,6 +2,8 @@
 
 {% set pageName="Check your answers" %}
 
+{% set destinationName = "the Moon" if data['destination'] == "Moon" else "Mars" %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -12,7 +14,10 @@
         href: "/address"
         }) }}
 
-        <h1 class="govuk-heading-l">Check your answers</h1>
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-l">Your trip to {{ destinationName }}</span>
+            Check your answers
+        </h1>
 
         {{ govukSummaryList({
         rows: [
