@@ -15,6 +15,7 @@
         <form method="post" action="/mars-duration-answer">
             {{ govukRadios({
             name: "marsDuration",
+            errorMessage: { text: "Select whether you are able to travel for up to 3 years" } if error,
             classes: "govuk-radios--inline",
             fieldset: {
             legend: {

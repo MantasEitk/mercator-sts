@@ -12,10 +12,11 @@
         href: "/destination"
         }) }}
 
-        <form method="post" action="/address">
+        <form method="post" action="/name-answer">
 
 
             {{ govukInput({
+            errorMessage: { text: "Enter your full name" } if error,
             label: {
             text: "What is your full name?",
             classes: "govuk-label--l",

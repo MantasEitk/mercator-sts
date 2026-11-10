@@ -11,7 +11,9 @@ const router = govukPrototypeKit.requests.setupRouter()
 router.post('/mars-duration-answer', function(request, response) {
 
     var marsDuration = request.session.data['marsDuration']
-    if (marsDuration == "Yes"){
+    if (!marsDuration) {
+        response.render("mars-duration", { error: true })
+    } else if (marsDuration == "Yes"){
         response.redirect("/name")
     } else {
         response.redirect("/cannot-travel")
@@ -21,10 +23,22 @@ router.post('/mars-duration-answer', function(request, response) {
 router.post('/destination-answer', function(request, response) {
 
     var destination = request.session.data['destination']
-    if (destination == "Mars"){
+    if (!destination) {
+        response.render("destination", { error: true })
+    } else if (destination == "Mars"){
         response.redirect("/mars-duration")
     } else {
         response.redirect("/name")
+    }
+})
+
+router.post('/name-answer', function(request, response) {
+
+    var name = request.session.data['fullName']
+    if (!name) {
+        response.render("name", {error:true })
+    } else  {
+        response.redirect("/address")
     }
 })
 

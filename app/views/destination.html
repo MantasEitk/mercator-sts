@@ -15,6 +15,7 @@
         <form method="post" action="/destination-answer">
             {{ govukRadios({
             name: "destination",
+            errorMessage: { text: "Select where you want to travel" } if error,
             fieldset: {
             legend: {
             text: "Where do you want to travel?",
