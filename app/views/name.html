@@ -9,7 +9,7 @@
 
         {{ govukBackLink({
         text: "Back",
-        href: "/destination"
+        href: "/mars-duration" if data['destination'] == "Mars" else "/destination"
         }) }}
 
         <form method="post" action="/name-answer">
