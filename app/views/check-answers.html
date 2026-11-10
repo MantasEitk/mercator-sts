@@ -19,6 +19,14 @@
             Check your answers
         </h1>
 
+        {% set addressHtml %}
+        {{ data['addressLine1'] }}<br>
+        {% if data['addressLine2'] %}{{ data['addressLine2'] }}<br>{% endif %}
+        {{ data['addressTown'] }}<br>
+        {% if data['addressCounty'] %}{{ data['addressCounty'] }}<br>{% endif %}
+        {{ data['addressPostcode'] }}
+        {% endset %}
+
         {{ govukSummaryList({
         rows: [
         {
@@ -77,7 +85,7 @@
         text: "Address"
         },
         value: {
-        html: data['addressLine1'] + "<br>" + data['addressTown'] + "<br>" + data['addressPostcode']
+        html: addressHtml
         },
         actions: {
         items: [

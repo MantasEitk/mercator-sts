@@ -9,7 +9,16 @@
       {{ serviceName }}
     </h1>
 
-    <p class="govuk-body">Use this service to book a trip to the Moon or Mars.</p>
+    <p class="govuk-body">You can use this service to book a trip to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the Moon</li>
+      <li>Mars</li>
+    </ul>
+    <p class="govuk-body">It takes around 2 minutes.</p>
+
+    <div class="govuk-inset-text">
+      If you want to travel to Mars, you need to be able to travel for up to 3 years.
+    </div>
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -19,6 +28,13 @@
     isStartButton: true
     }) }}
 
+    <h2 class="govuk-heading-m"> Before you start </h2>
+    <p class="govuk-body">You'll need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your full name</li>
+      <li>your address</li>
+    </ul>
+    <p class="govuk-body">You'll be able to check and change your answers before you confirm your booking.</p>
 
   </div>
 </div>
