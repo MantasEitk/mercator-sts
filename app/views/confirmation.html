@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Booking confirmed" %}
+
+{% set destinationName = "the Moon" if data['destination'] == "Moon" else "Mars" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% call govukPanel({
+        titleText: "Booking to " + destinationName + " confirmed"
+        }) %}
+        Your reference number<br>
+        <strong>HDJ2123F</strong>
+        {% endcall %}
+
+        <p class="govuk-body">We'll send your booking details to the address you gave us.</p>
+    </div>
+</div>
+
+{% endblock %}
