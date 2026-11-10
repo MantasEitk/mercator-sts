@@ -14,9 +14,27 @@
 
         <form method="post" action="/address-answer">
 
+            {% if error %}
+            {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
-            {% from "govuk/components/input/macro.njk" import govukInput %}
-            {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+            {
+            text: "Enter address line 1, typically the building and street",
+            href: "#address-line-1"
+            }if not data['addressLine1'],
+            {
+            text: "Enter town or city",
+            href: "#address-town"
+            }if not data['addressTown'],
+            {
+            text: "Enter postcode",
+            href: "#address-postcode"
+            }if not data['addressPostcode']
+            ]
+            }) }}
+            {% endif %}
 
             {% call govukFieldset({
             legend: {
