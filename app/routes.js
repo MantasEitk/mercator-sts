@@ -42,4 +42,17 @@ router.post('/name-answer', function(request, response) {
     }
 })
 
+router.post('/address-answer', function(request, response) {
+
+    var line1 = request.session.data['addressLine1']
+    var town = request.session.data['addressTown']
+    var postcode = request.session.data['addressPostcode']
+
+    if (!line1 || !town || !postcode) {
+        response.render("address", { error: true })
+    } else {
+        response.redirect("/check-answers")
+    }
+})
+
 

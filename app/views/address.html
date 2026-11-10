@@ -12,7 +12,7 @@
         href: "/name"
         }) }}
 
-        <form method="post" action="/check-answers">
+        <form method="post" action="/address-answer">
 
 
             {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -33,6 +33,8 @@
             id: "address-line-1",
             name: "addressLine1",
             value: data['addressLine1'],
+            errorMessage: { text: "Enter address line 1, typically the building and street" } if error and not
+            data['addressLine1'],
             autocomplete: "address-line1"
             }) }}
 
@@ -54,6 +56,7 @@
             id: "address-town",
             name: "addressTown",
             value: data['addressTown'],
+            errorMessage: { text: "Enter town or city" } if error and not data['addressTown'],
             autocomplete: "address-level2"
             }) }}
 
@@ -75,6 +78,7 @@
             id: "address-postcode",
             name: "addressPostcode",
             value: data['addressPostcode'],
+            errorMessage: { text: "Enter postcode" } if error and not data['addressPostcode'],
             autocomplete: "postal-code"
             }) }}
 
