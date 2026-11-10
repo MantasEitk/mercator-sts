@@ -14,6 +14,19 @@
 
         <form method="post" action="/name-answer">
 
+            {% if error %}
+            {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+            {
+            text: "Enter your full name",
+            href: "#fullName"
+            }if not data['fullName']
+            ]
+            }) }}
+            {% endif %}
 
             {{ govukInput({
             errorMessage: { text: "Enter your full name" } if error,

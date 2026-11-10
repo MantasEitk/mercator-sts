@@ -13,6 +13,21 @@
         }) }}
 
         <form method="post" action="/destination-answer">
+
+            {% if error %}
+            {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+            {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+            {
+            text: "Select where you want to travel",
+            href: "#destination"
+            }if not data['destination']
+            ]
+            }) }}
+            {% endif %}
+
             {{ govukRadios({
             name: "destination",
             value: data['destination'],
