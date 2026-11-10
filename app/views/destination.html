@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Where do you want to travel?" %}
+{% set pageName= ("Error: " if error else "") + "Where do you want to travel?" %}
 
 {% block content %}
 
